@@ -14,6 +14,10 @@ case $choice in
 		. ./ListDBs
 		break
 		;;
+"Connect to Database") echo "Connect to Database"
+		. ./connectDB
+		break
+		;;
 "Drop Database") echo "Drop Database"
 		. ./dropDB
 		break
