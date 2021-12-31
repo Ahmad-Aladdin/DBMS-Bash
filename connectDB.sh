@@ -11,9 +11,10 @@ read db_name
 elif [ -d $db_name ] 
 then
 	cd $db_name
+	echo "successfully connected to $db_name"
 
 else
-	echo " this db does not exist,Retry again"
+	echo " No DB Named $db_name "
 	read db_name
 fi
 
