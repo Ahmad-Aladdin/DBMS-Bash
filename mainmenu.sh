@@ -7,19 +7,19 @@ select choice in "Create Database" "List Databases" "Drop Database" "Exit Menu"
 do 
 case $choice in
 "Create Database") echo "Create Database"
-		. ./CreateDB
+		. ./CreateDB.sh
 		break
 		;;
 "List Databases") echo "List all Databases"
-		. ./ListDBs
+		. ./ListDBs.sh
 		break
 		;;
 "Connect to Database") echo "Connect to Database"
-		. ./connectDB
+		. ./connectDB.sh
 		break
 		;;
 "Drop Database") echo "Drop Database"
-		. ./dropDB
+		. ./dropDB.sh
 		break
 		;;
 "Exit Menu") exitMenu=1 
@@ -32,5 +32,3 @@ then
 	break
 fi
 done
-© 2021 GitHub, Inc.
-Terms
