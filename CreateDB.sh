@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+clear
 echo -e "Enter Database Name: \c"
   read dbName
   
@@ -11,6 +13,11 @@ echo -e "Enter Database Name: \c"
             echo -e "\e[41mYou can't enter these characters => . / : - | \e[0m"
             echo press any key
             read
+    elif [[ $dbName = *[0-9] ]]; 
+    then
+            echo -e "\e[41mYou can't enter numbers \e[0m"
+            echo press any key
+            read        
     elif [[ -d ./Databases/$dbName ]]; 
     then
 		echo -e "\e[41mthis database name is already used\e[0m"

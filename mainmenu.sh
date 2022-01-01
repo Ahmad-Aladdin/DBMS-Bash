@@ -1,9 +1,10 @@
 #!/usr/bin/bash
-
+clear
+PS3="Select Option   "
 exitMenu=0
 while true
 do 
-select choice in "Create Database" "List Databases" "Drop Database" "Exit Menu"
+select choice in "Create Database" "List Databases" "Connect to Database" "Drop Database" "Exit Menu"
 do 
 case $choice in
 "Create Database") echo "Create Database"

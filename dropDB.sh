@@ -1,9 +1,10 @@
 #!/usr/bin/bash
+clear
 echo " Hello this is DropDB file"
 read db_name
-if [ -d $db_name ]
+if [ -d Databases/$db_name ]
 then
-	rm -r $db_name 2> /dev/null #put any error in the cmd
+	rm -r Databases/$db_name 2> /dev/null #put any error in the cmd
 	echo " $db_name sucessfully dropped"
 
 elif ! [[ $db_name == *[a-zA-Z0-9] ]] ; then
@@ -19,6 +20,5 @@ else
 	else 
 	    	echo " this db does not exist"
 	fi
-
 fi
 

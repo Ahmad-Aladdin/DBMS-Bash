@@ -1,5 +1,6 @@
 #!/usr/bin/bash
-
+clear
+echo connected to $connected_db
 exitMenu=0
 while true
 do 
@@ -7,7 +8,7 @@ select choice in "Create Table" "List Tables" "Drop Tables" "Insert into  Table"
 do 
 case $choice in
 "Create Table") echo "Create Table"
-		. ./CreateTabe.sh
+		. ./CreateTable.sh
 		break
 		;;
 "List Tables") echo "List Tables"

@@ -1,11 +1,31 @@
-#!/usr/bin/bash
-echo " this List tables"
-echo " please enter the name of db you want to list the tables of it "
-read x
-if [ -f $x ] 
+!/bin/bash                                                                     
+clear
+
+#List of the available tables                                                   
+tb=`ls ./Databases/$connected_db/Tables/Tables | wc -l`
+
+if [ "$tb" == 0 ]
 then
-	
+   echo "Unfortunately, There are no Tables Recorded"
+
 else
-	echo "this db does not exist"
+   echo "Your available Tables are: "
+   ls ./Databases/$connected_db/Tables/Tables | awk '{print NR, "-", $0}'
 fi
- 
+#check which Action the user need after completing his current operation        
+echo "==========================================================="
+echo "please select your next action from the following actions"
+PS3="Enter Your Choice:~$ "
+select choice in "Back" "Back To Main Menu" "Exit the Application"
+   do
+         case $REPLY in
+         1). ./TablesMenu.sh yes
+	       ;;
+         2). ./mainmenu.sh
+	       ;;
+         3) exit
+               ;;
+         *) echo "Invalid Selection Please Try again...!"
+	       ;;
+         esac
+	done
