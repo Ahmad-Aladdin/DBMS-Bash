@@ -23,13 +23,9 @@ case $choice in
 		. ./dropDB.sh
 		break
 		;;
-"Exit Menu") exitMenu=1 
-		 break
+"Exit Menu") exit
+		 
 		 ;;
 esac
 done
-if [ $exitMenu == 1 ]; 
-then
-	break
-fi
 done

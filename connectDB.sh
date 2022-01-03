@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 clear
-echo "Hello this is connect dbs bash file"
+echo "Enter a Database name to connect"
 read connected_db
 #NO_thing is entered 
 if  [[   $connected_db == ""   ]]

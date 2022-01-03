@@ -1,11 +1,39 @@
 echo -e "Table Name: \c"
   read tableName
-		DIR="./Databases/$connected_db/Tables/Tables"
+  if [[ $tableName == "" ]];then
+		echo "NOthing is enetered , PLease try again " 
+		echo " Rdirect to TablesMenu in 2 sec"
+		sleep 2;
+		clear 
+		. ./TablesMenu.sh
+	elif ! [[ $tableName == *[a-zA-Z0-9] ]] ; then
+		echo " you have entered special characters"
+		echo " Rdirect to TablesMenu in 2 sec"
+		sleep 2;
+		clear 
+		. ./TablesMenu.sh
+	elif [[ $tableName == *[0-9] ]];then
+		echo "you have entered Numbers"	
+		echo " Rdirect to TablesMenu in 2 sec"
+		sleep 2;
+		clear 
+		. ./TablesMenu.sh
+	elif [[ $tableName =~ [/.:\|\-] ]];then
+		echo -e "You can't enter these characters => . / : -|"
+		echo " Rdirect to TablesMenu in 2 sec"
+		sleep 2;		
+		clear 
+		. ./TablesMenu.sh
+	fi
+   S=":" 
+  RS="\n" #record seperator
+  metaData=""
+##############################################
+	DIR="./Databases/$connected_db/Tables/Tables"
         if [ ! -d "$DIR" ]; then
         # Take action if $DIR exists. #
         mkdir -p ./Databases/$connected_db/Tables/Tables 
         fi
-
         if [[ -f ./Databases/$connected_db/Tables/Tables/$tableName ]]; then
 		echo "table already existed ,choose another name"
 		sleep 3;
@@ -13,57 +41,41 @@ echo -e "Table Name: \c"
 		fi
   echo -e "Number of Columns: \c"
   read colsNum
-  counter=1
-  sep=":"
-  rSep="\n"
-  pKey=""
-  metaData="Field"$sep"Type"$sep"key"
-  while [ $counter -le $colsNum ]
-  do
-    echo -e "Name of Column No.$counter: \c"
-    read colName
-
-    echo -e "Type of Column $colName: "
+    echo -e "Enter the Name of the Primary key column : \c"
+    read PKcol
+    echo -e "Type of Column $colName : "
     select var in "int" "str"
     do
       case $var in
         int ) colType="int";break;;
         str ) colType="str";break;;
-        * ) echo "Wrong Choice" ;;
+        * ) echo "INvalid...!" ;;
       esac
     done
-    if [[ $pKey == "" ]]; then
-      echo -e "Make PrimaryKey ? "
-      select var in "yes" "no"
+    metaData+=$PKcol$S$colType$S"PK"$RS;
+ 
+  for (( counter = 2; counter <= colsNum ; counter++ )); do
+      echo -e "Enter the Name of column $counter: \c"
+      read colName
+      echo -e "Type of Column $colName: "
+      select var in "int" "str"
       do
         case $var in
-          yes ) pKey="PK";
-          metaData+=$rSep$colName$sep$colType$sep$pKey;
-          break;;
-          no )
-          metaData+=$rSep$colName$sep$colType$sep""
-          break;;
-          * ) echo "Wrong Choice" ;;
+          int ) colType="int";break;;
+          str ) colType="str";break;;
+          * ) echo "INvalid...!" ;;
         esac
       done
-    else
-      metaData+=$rSep$colName$sep$colType$sep""
-    fi
-    
-    ((counter++))
+      metaData+=$colName$S$colType$S""$RS
   done
-
 	DIR="./Databases/$connected_db/Tables/metaData"
     if [ ! -d "$DIR" ]; then
     # Take action if $DIR exists. #
     mkdir  ./Databases/$connected_db/Tables/metaData
     fi
-
   touch ./Databases/$connected_db/Tables/Tables/$tableName
-  
   echo -e $metaData  >> ./Databases/$connected_db/Tables/metaData/$tableName
   touch ./Databases/$connected_db/Tables/metaData/$tableName
-  
   if [[ $? == 0 ]]
   then
     echo "Table Created Successfully"
@@ -72,4 +84,3 @@ echo -e "Table Name: \c"
     echo "Error Creating Table $tableName"
     . ./TablesMenu.sh
   fi
-

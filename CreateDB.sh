@@ -40,4 +40,18 @@ echo -e "Enter Database Name: \c"
     fi
 
 
+echo "==========================================================="
+echo "please select your next action"
+PS3="Enter Your Choice:~$ "
+select choice in "Back To Main Menu" "Exit the Application"
+do
+   case $REPLY in
+    1). ./mainmenu.sh
+       ;;
+    2) exit
+       ;;
+    *) echo "Invalid Selection Please Try again...!"
+       ;;
+    esac
+done
     
