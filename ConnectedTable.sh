@@ -12,7 +12,7 @@ case $choice in
 		break
 		;;
 "Select from Table") echo "Select into Table"
-		. ./select.sh
+		. ./SelectfromTable.sh
 		break
 		;;
 "Delete from Table") echo "Delete from Table"

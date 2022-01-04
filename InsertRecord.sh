@@ -7,7 +7,6 @@ ROW=""
 #connected_Table=test
 #connected_db=akh
 cols_num=`cat Databases/$connected_db/Tables/metaData/$connected_Table | wc -l`
-echo $cols_num
 for (( counter=1; counter<=$cols_num; counter++ ))
 do 
     
