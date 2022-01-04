@@ -4,14 +4,14 @@ echo connected to $connected_Table
 exitMenu=0
 while true
 do 
-select choice in "Insert into  Table" "Select into Table" "Delete from Table" "Update Table" "Back"
+select choice in "Insert into  Table" "Select from Table" "Delete from Table" "Update Table" "Back"
 do 
 case $choice in
 "Insert into  Table") echo "Insert into  Table"
-		. ./insertRecord.sh
+		. ./InsertRecord.sh
 		break
 		;;
-"Select into Table") echo "Select into Table"
+"Select from Table") echo "Select into Table"
 		. ./select.sh
 		break
 		;;

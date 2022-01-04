@@ -1,3 +1,4 @@
+clear
 echo -e "Table Name: \c"
   read tableName
   if [[ $tableName == "" ]];then
@@ -52,7 +53,11 @@ echo -e "Table Name: \c"
         * ) echo "INvalid...!" ;;
       esac
     done
-    metaData+=$PKcol$S$colType$S"PK"$RS;
+    if [[ $colsNum == 1 ]]; then
+        metaData+=$PKcol$S$colType$S"PK"
+    else    
+        metaData+=$PKcol$S$colType$S"PK"$RS;
+    fi    
  
   for (( counter = 2; counter <= colsNum ; counter++ )); do
       echo -e "Enter the Name of column $counter: \c"
@@ -66,15 +71,23 @@ echo -e "Table Name: \c"
           * ) echo "INvalid...!" ;;
         esac
       done
-      metaData+=$colName$S$colType$S""$RS
+
+      if [[ $counter == $colsNum ]]; then 
+           metaData+=$colName$S$colType$S""
+      else
+          metaData+=$colName$S$colType$S""$RS
+      fi
   done
+
 	DIR="./Databases/$connected_db/Tables/metaData"
+
     if [ ! -d "$DIR" ]; then
-    # Take action if $DIR exists. #
-    mkdir  ./Databases/$connected_db/Tables/metaData
+        # Take action if $DIR exists. #
+        mkdir  ./Databases/$connected_db/Tables/metaData
     fi
+
   touch ./Databases/$connected_db/Tables/Tables/$tableName
-  echo -e $metaData  >> ./Databases/$connected_db/Tables/metaData/$tableName
+  echo -e $metaData  > ./Databases/$connected_db/Tables/metaData/$tableName
   touch ./Databases/$connected_db/Tables/metaData/$tableName
   if [[ $? == 0 ]]
   then
