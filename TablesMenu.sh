@@ -36,6 +36,8 @@ case $choice in
 		;;	
 "exit Menu") exit
 		 ;;
+		  *) echo "Invalid Selection try again !"
+		 ;;
 esac
 done
 done

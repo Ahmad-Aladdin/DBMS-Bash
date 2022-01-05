@@ -35,6 +35,8 @@ case $choice in
         . ./TablesMenu.sh
 		 break
 		 ;;
+		  *) echo "Invalid Selection try again !"
+		 ;;
 esac
 done
 done
