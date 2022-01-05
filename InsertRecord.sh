@@ -33,6 +33,12 @@ do
             sleep 2;
             clear 
             . ./ConnectedTable.sh
+        elif [[ echo "$value" | grep '*' | wc -c > 0 ]] 
+        then
+                echo "Rdirect to TablesMenu in 2 sec"
+	            sleep 2;
+	  	        clear 
+		        . ./ConnectedTable.sh      
         elif [[ `cat ./Databases/$connected_db/Tables/Tables/$connected_Table | cut -d: -f1 | grep -w "$value" | wc -l` > 0 ]]; then
             echo "primary key must be unique" 
             echo " Rdirect to TablesMenu in 3 sec"
@@ -50,6 +56,12 @@ do
             sleep 3;
             clear 
             . ./ConnectedTable.sh 
+        elif [[ `echo "$value" | grep '*' | wc -c` > 0 ]] 
+        then
+                echo "Rdirect to TablesMenu in 2 sec"
+	            sleep 2;
+	  	        clear 
+		        . ./ConnectedTable.sh    
         fi
     fi    
 

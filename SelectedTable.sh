@@ -16,6 +16,13 @@ if  [[   $connected_Table == "" ]]
 then
 echo "NOthing is entered,PLease enter again" 
 read connected_Table
+elif [[ `echo "$connected_Table" | grep '*' | wc -c` > 0 ]] 
+        then
+			echo "Invalid Input"
+			echo "Rdirect to TablesMenu in 2 sec"
+			sleep 2;
+			clear 
+			. ./mainmenu.sh
 elif  [[ $connected_Table == *[a-z][A-Z][0-9] ]];then
 	 #cannot check on dot and /
 	#special char check

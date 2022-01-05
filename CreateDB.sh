@@ -15,6 +15,13 @@ echo -e "Enter Database Name: \c"
             echo -e "\e[41minvalid entry, please enter a correct name\e[0m"
             echo press any key
             read
+    elif [[ `echo "$dbName" | grep '*' | wc -c` > 0 ]] 
+        then
+               echo "Invalid Input"
+               echo "Rdirect to TablesMenu in 2 sec"
+	            sleep 2;
+	  	         clear 
+		         . ./mainmenu.sh       
     elif [[ $dbName =~ [/.:\|\-] ]]; 
     then
             echo -e "\e[41mYou can't enter these characters => . / : - | \e[0m"

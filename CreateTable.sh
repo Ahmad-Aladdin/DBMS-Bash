@@ -16,21 +16,28 @@ echo -e "Enter Table Name: \c"
 		sleep 2;
 		clear 
 		. ./TablesMenu.sh
+  elif [[ `echo "$tableName" | grep '*' | wc -c` > 0 ]]
+  then
+      echo "Not Valid Input"   
+      echo "Rdirect to TablesMenu in 2 sec"
+	  	sleep 2;
+	  	clear 
+		  . ./TablesMenu.sh 
 	elif ! [[ $tableName == *[a-zA-Z0-9] ]] ; then
-		echo " you have entered special characters"
-		echo " Rdirect to TablesMenu in 2 sec"
+		echo "you have entered special characters"
+		echo "Rdirect to TablesMenu in 2 sec"
 		sleep 2;
 		clear 
 		. ./TablesMenu.sh
 	elif [[ $tableName == *[0-9] ]];then
 		echo "you have entered Numbers"	
-		echo " Rdirect to TablesMenu in 2 sec"
+		echo "Rdirect to TablesMenu in 2 sec"
 		sleep 2;
 		clear 
 		. ./TablesMenu.sh
 	elif [[ $tableName =~ [/.:\|\-] ]];then
 		echo -e "You can't enter these characters => . / : -|"
-		echo " Rdirect to TablesMenu in 2 sec"
+		echo "Rdirect to TablesMenu in 2 sec"
 		sleep 2;		
 		clear 
 		. ./TablesMenu.sh
@@ -53,7 +60,7 @@ echo -e "Enter Table Name: \c"
   read colsNum
   if [[ $colsNum <=2 ]]; then
     echo "You have to enter a number bigger than 1"
-    echo " Rdirect to TablesMenu in 2 sec"
+    echo "Rdirect to TablesMenu in 2 sec"
     sleep 2;
     clear 
     . ./ConnectedTable.sh

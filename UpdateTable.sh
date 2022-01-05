@@ -43,6 +43,12 @@ if [[ $Numofcols == 0 ]]; then
             sleep 2;
             clear 
             . ./ConnectedTable.sh
+        elif [[ `echo "$PKvalue" | grep '*' | wc -c` > 0 ]] 
+        then
+                echo "Rdirect to TablesMenu in 2 sec"
+	            sleep 2;
+	  	        clear 
+		        . ./ConnectedTable.sh    
         elif [[ `cat ./Databases/$connected_db/Tables/Tables/$connected_Table | cut -d: -f1 | grep -w "$PKvalue" | wc -l` == 0 ]]; then
             echo "primary key is not exist" 
             echo " Rdirect to TablesMenu in 3 sec"
@@ -67,6 +73,12 @@ if [[ $Numofcols == 0 ]]; then
                     sleep 2;
                     clear 
                     . ./ConnectedTable.sh
+                elif [[ `echo "$columnName" | grep '*' | wc -c` > 0 ]] 
+                then
+                echo "Rdirect to TablesMenu in 2 sec"
+	            sleep 2;
+	  	        clear 
+		        . ./ConnectedTable.sh    
                 elif [[ `cat ./Databases/$connected_db/Tables/metaData/$connected_Table | cut -d: -f1 | grep -w "$columnName" | wc -l` == 0 ]]; then
                     echo "Column is not exist" 
                     echo " Rdirect to TablesMenu in 3 sec"
@@ -93,6 +105,13 @@ if [[ $Numofcols == 0 ]]; then
                         sleep 2;
                         clear 
                         . ./ConnectedTable.sh
+                    elif [[ `echo "$NewValue" | grep '*' | wc -c` > 0 ]] 
+                    then
+                    echo "Invalid Input"
+                    echo "Rdirect to TablesMenu in 2 sec"
+	                sleep 2;
+	  	            clear 
+		            . ./ConnectedTable.sh    
                     elif [[ $NewValue == "int" && $NewValue != "" ]]; then
                             if [[ ! $NewValue =~ ^[0-9]+$ ]]; then
                                     echo "Only allowed is INTEGERS"	
