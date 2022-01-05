@@ -20,7 +20,7 @@ case $choice in
 		break
 		;;
 "Update Table") echo "Update Table"
-		. ./update.sh
+		. ./UpdateTable.sh
 		break
 		;;
 "Back") 
