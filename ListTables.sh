@@ -1,6 +1,14 @@
 !/bin/bash                                                                     
 clear
-
+echo "      -------------------------------------------------------------------"
+echo "      |                         LIST ALL TABLES                          |"
+echo "      |                                                                  |"
+echo "                    ---------> CONNECTED TO $connected_db DATABASE <----------           "
+echo "      |                                                                  |"
+echo "      |                                                                  |"
+echo "      --------------------------------------------------------------------"
+echo
+echo
 #List of the available tables                                                   
 tb=`ls ./Databases/$connected_db/Tables/Tables | wc -l`
 

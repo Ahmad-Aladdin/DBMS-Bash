@@ -2,28 +2,36 @@
 clear
 Numofcols=`cat ./Databases/$connected_db/Tables/Tables/$connected_Table | wc -l`
 colType=`awk -F: ' NR==1 { print $2}' Databases/$connected_db/Tables/metaData/$connected_Table`
-echo "                ---------> $connected_Table Table <------------            "
-echo ""
 
+echo "      -------------------------------------------------------------------"
+echo "      |                 UPDATE YOUR TABLES RECORDS HER                   |"
+echo "      |                                                                  |"
+echo "                        ---------> $connected_Table Table <----------           "
+echo "      |                                                                  |"
+echo "      |                                                                  |"
+echo "      --------------------------------------------------------------------"
+echo
+echo
 if [[ $Numofcols == 0 ]]; then
         echo "There is nothing to show here"
     else   
-        tput cup 3 20
+        tput cup 8 20
         awk -F: '{ printf $1   "     "}' Databases/$connected_db/Tables/metaData/$connected_Table
         echo 
-        tput cup 4 15
+        tput cup 10 15
         echo -n "---------------------------------"
         
         for (( counter=1; counter<=$Numofcols; counter++ ))
         do 
             #gettin the col name 
-            tput cup $((5+counter)) 20
+            tput cup $((10+counter)) 20
             awk -F: '{if(NR=='$counter'){ for(i=1;i<=NF;i++){printf $i   "     "} }}' Databases/$connected_db/Tables/Tables/$connected_Table
             ##awk -F: '{print $0}'
             #column -t -s ':' Databases/$connected_db/Tables/Tables/$connected_Table 2> /dev/null
         done
-        tput cup 10 0
+        #tput cup 10 0
         echo 
+        echo
         echo "==============================================================================" 
         echo       
         echo "Enter the primary key Column "
@@ -111,22 +119,27 @@ if [[ $Numofcols == 0 ]]; then
         fi        
 fi
 clear
-echo "                ---------> $connected_Table Table After Update <------------            "
-echo ""
+echo "      -------------------------------------------------------------------"
+echo "      |                        TABLES RECORDS                           |"
+echo "      |                                                                 |"
+echo "                      -----> $connected_Table Table After Update  <-----        "
+echo "      |                                                                 |"
+echo "      |                                                                 |"
+echo "      -------------------------------------------------------------------"
 echo ""
 #echo "                ---------> $connected_Table Table <------------            "
 echo ""
 #. ./SelectfromTable.sh   
-    tput cup 3 20
+    tput cup 8 20
     awk -F: '{ printf $1   "     "}' Databases/$connected_db/Tables/metaData/$connected_Table
     echo 
-    tput cup 4 15
+    tput cup 10 15
     echo -n "---------------------------------"
     
     for (( counter=1; counter<=$Numofcols; counter++ ))
     do 
         #gettin the col name 
-        tput cup $((5+counter)) 20
+        tput cup $((10+counter)) 20
         awk -F: '{if(NR=='$counter'){ for(i=1;i<=NF;i++){printf $i   "     "} }}' Databases/$connected_db/Tables/Tables/$connected_Table
         ##awk -F: '{print $0}'
         #column -t -s ':' Databases/$connected_db/Tables/Tables/$connected_Table 2> /dev/null
@@ -146,9 +159,9 @@ PS3="Enter Your Choice:~$ "
         ;;
         3) . ./DeleteFromTable.sh
         ;;
-        4) . ./connected_Table.sh
+        4) . ./Connected_Table.sh
         ;;
-        5) . ./MainMenu.sh
+        5) . ./mainmenu.sh
         ;;
         6) exit
         ;;

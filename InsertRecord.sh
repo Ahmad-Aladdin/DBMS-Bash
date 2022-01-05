@@ -1,6 +1,14 @@
 #!/usr/bin/bash
 clear
-
+echo "      -------------------------------------------------------------------"
+echo "      |                          INSERT RECORDS                          |"
+echo "      |                                                                  |"
+echo "                    ---------> CONNECTED TO $connected_Table TABLE <----------           "
+echo "      |                                                                  |"
+echo "      |                                                                  |"
+echo "      --------------------------------------------------------------------"
+echo
+echo
 sep=":"
 rsep="\n"
 ROW=""

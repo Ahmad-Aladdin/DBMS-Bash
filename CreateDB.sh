@@ -1,5 +1,12 @@
 #!/usr/bin/bash
 clear
+echo "      ---------------------------------------------------------------- --"
+echo "      |                                                                 |"
+echo "      |                       CREATE DATABASES                          |"
+echo "      |                                                                 |"
+echo "      -------------------------------------------------------------------"
+echo
+echo
 echo -e "Enter Database Name: \c"
   read dbName
   

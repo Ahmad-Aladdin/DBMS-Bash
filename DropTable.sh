@@ -1,6 +1,14 @@
  #!/usr/bin/bash                                                                
 clear
-
+echo "      --------------------------------------------------------------------"
+echo "      |                            DROP TABLE                            |"
+echo "      |                                                                  |"
+echo "                    ---------> CONNECTED TO $connected_db DATABASE <----------           "
+echo "      |                                                                  |"
+echo "      |                                                                  |"
+echo "      --------------------------------------------------------------------"
+echo
+echo
 #Drop one  of the available tables                                                   
 tb=`ls ./Databases/$connected_db/Tables/Tables | wc -l`
 
@@ -17,6 +25,7 @@ else
    rm -r Databases/$connected_db/Tables/metaData/$tableName #remove only files
 # max depth 1 => find will NOT search for files in subdirs of PATH
    rm -r Databases/$connected_db/Tables/Tables/$tableName
+   echo "Database Deleted Successfully"
 
 fi
 #check which Action the user need after completing his current operation        

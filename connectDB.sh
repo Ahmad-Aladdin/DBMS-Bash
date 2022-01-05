@@ -1,5 +1,12 @@
 #!/usr/bin/bash
 clear
+echo "      -------------------------------------------------------------------"
+echo "      |                                                                  |"
+echo "      |                      CONNECT TO A DATABASE                       |"
+echo "      |                                                                  |"
+echo "      --------------------------------------------------------------------"
+echo
+echo
 echo "Enter a Database name to connect"
 read connected_db
 #NO_thing is entered 

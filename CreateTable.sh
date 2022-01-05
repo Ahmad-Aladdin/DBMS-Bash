@@ -1,5 +1,14 @@
 clear
-echo -e "Table Name: \c"
+echo "      -------------------------------------------------------------------"
+echo "      |                          CREATE TABLE                            |"
+echo "      |                                                                  |"
+echo "                    ---------> CONNECTED TO $connected_db <----------          "
+echo "      |                                                                  |"
+echo "      |                                                                  |"
+echo "      --------------------------------------------------------------------"
+echo
+echo
+echo -e "Enter Table Name: \c"
   read tableName
   if [[ $tableName == "" ]];then
 		echo "NOthing is enetered , PLease try again " 
@@ -42,6 +51,13 @@ echo -e "Table Name: \c"
 		fi
   echo -e "Number of Columns: \c"
   read colsNum
+  if [[ $colsNum <=2 ]]; then
+    echo "You have to enter a number bigger than 1"
+    echo " Rdirect to TablesMenu in 2 sec"
+    sleep 2;
+    clear 
+    . ./ConnectedTable.sh
+    else
     echo -e "Enter the Name of the Primary key column : \c"
     read PKcol
     echo -e "Type of Column $colName : "
@@ -58,7 +74,7 @@ echo -e "Table Name: \c"
     else    
         metaData+=$PKcol$S$colType$S"PK"$RS;
     fi    
- 
+ fi
   for (( counter = 2; counter <= colsNum ; counter++ )); do
       echo -e "Enter the Name of column $counter: \c"
       read colName

@@ -1,10 +1,17 @@
 #!/usr/bin/bash
 clear
-echo connected to $connected_db
-exitMenu=0
+echo "      -------------------------------------------------------------------"
+echo "      |                            WELCOME                               |"
+echo "      |                                                                  |"
+echo "                     ---------> CONNECTED TO $connected_db DATABASE <----------         "
+echo "      |                                                                  |"
+echo "      |                                                                  |"
+echo "      --------------------------------------------------------------------"
+echo
+echo
 while true
 do 
-select choice in "Create Table" "List Tables" "Drop Tables" "Select Table" "exit Menu"
+select choice in "Create Table" "List Tables" "Drop Tables" "Select Table" "Back" "exit Menu"
 do 
 case $choice in
 "Create Table") echo "Create Table"
@@ -19,14 +26,16 @@ case $choice in
 		. ./DropTable.sh
 		break
 		;;
-
 "Select Table") echo "Select Table"
 		. ./SelectedTable.sh
 		break
 		;;
+"Back")	echo "Back"
+		. ./mainmenu.sh
+		break
+		;;	
 "exit Menu") exit
 		 ;;
 esac
 done
-
 done

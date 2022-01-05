@@ -1,7 +1,15 @@
 #!/usr/bin/bash
 clear
-echo connected to $connected_Table
-exitMenu=0
+echo "      -------------------------------------------------------------------"
+echo "      |                            TABLE MENU                            |"
+echo "      |                                                                  |"
+echo "                     ---------> CONNECTED TO $connected_Table TABLE <----------           "
+echo "      |                                                                  |"
+echo "      |                                                                  |"
+echo "      --------------------------------------------------------------------"
+echo
+echo
+#echo connected to $connected_Table
 while true
 do 
 select choice in "Insert into  Table" "Select from Table" "Delete from Table" "Update Table" "Back"

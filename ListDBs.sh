@@ -1,6 +1,12 @@
 #!/bin/bash
 clear
-
+echo "      -------------------------------------------------------------------"
+echo "      |                                                                  |"
+echo "      |                         LIST DATABASES                           |"
+echo "      |                                                                  |"
+echo "      --------------------------------------------------------------------"
+echo
+echo
 #check if the user has directory to databases or it's the first use of this application
     if ! [ -d ./Databases ]
     then

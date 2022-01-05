@@ -1,7 +1,14 @@
 #!/usr/bin/bash
 clear
 PS3="Select Option   "
-exitMenu=0
+
+echo "      -------------------------------------------------------------------"
+echo "      |                ------> WELCOME TO OUR DBMS <-----                |"
+echo "      |                   Made by A.Aladdin - Arwa Ahmed                 |"
+echo "      |                                                                  |"
+echo "      --------------------------------------------------------------------"
+echo
+echo
 while true
 do 
 select choice in "Create Database" "List Databases" "Connect to Database" "Drop Database" "Exit Menu"

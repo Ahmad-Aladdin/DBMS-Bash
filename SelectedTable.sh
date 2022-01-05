@@ -1,5 +1,14 @@
 #!/usr/bin/bash
 clear
+echo "      -------------------------------------------------------------------"
+echo "      |                       SELECT TABLE TO USE                        |"
+echo "      |                                                                  |"
+echo "                    ---------> CONNECTED TO $connected_db DATABASE <----------           "
+echo "      |                                                                  |"
+echo "      |                                                                  |"
+echo "      --------------------------------------------------------------------"
+echo
+echo
 echo "Enter a Table name to connect"
 read connected_Table
 #NO_thing is entered 
